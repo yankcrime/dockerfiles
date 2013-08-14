@@ -26,5 +26,5 @@ fi
 HOSTLINE=$(echo $(ip -f inet addr show eth0 | grep 'inet' | awk '{ print $2 }' | cut -d/ -f1) $(hostname) $(hostname -s))
 echo $HOSTLINE >> /etc/hosts
 
-/usr/sbin/mysqld &
+/usr/bin/mysqld_safe &
 /usr/sbin/apache2ctl -D FOREGROUND
