@@ -16,7 +16,7 @@ RUN echo "mysql-server-5.5 mysql-server/root_password_again seen true" | debconf
 
 RUN apt-get install -y apache2 php5 php5-gd php-xml-parser php5-intl php5-sqlite mysql-server-5.5 smbclient curl libcurl3 php5-mysql php5-curl bzip2 wget vim openssl ssl-cert sharutils
 
-RUN wget -q -O - http://download.owncloud.org/community/owncloud-6.0.0a.tar.bz2 | tar jx -C /var/www/
+RUN wget -q -O - http://download.owncloud.org/community/owncloud-6.0.2.tar.bz2 | tar jx -C /var/www/
 
 RUN mkdir /etc/apache2/ssl
 
