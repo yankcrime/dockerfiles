@@ -18,7 +18,7 @@ docker run -d -p 10053:53/udp --name cat-dns yankcrime/cat-dns
 
 And browse to [http://google.com](http://google.com):
 
-![catdns](https://dl.dropboxusercontent.com/u/174303/catdns.png)
+![catdns](https://dischord.storage.datacentred.io/static/catdns.png)
 
 🐳 + 🐈 = ❤️
 
