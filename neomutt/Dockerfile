@@ -13,7 +13,7 @@ RUN adduser -u 1000 -D user \
 
 ENV LANG C.UTF-8
 
-ENV NEOMUTT_RELEASE 20171215
+ENV NEOMUTT_RELEASE 20180223
 
 RUN set -x \
         && apk add --no-cache --virtual .build-deps \
