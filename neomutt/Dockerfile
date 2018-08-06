@@ -1,7 +1,7 @@
 # Dockerfile for NeoMutt plus 'essentials'
 # Largely inspired by Jess Frazelle (@jessfraz)
 #
-FROM alpine:3.6
+FROM alpine:3.7
 
 RUN apk --no-cache add \
         ca-certificates
@@ -13,13 +13,14 @@ RUN adduser -u 1000 -D user \
 
 ENV LANG C.UTF-8
 
-ENV NEOMUTT_RELEASE 20180512
+ENV NEOMUTT_RELEASE 20180716
 
 RUN set -x \
         && apk add --no-cache --virtual .build-deps \
                 autoconf \
                 automake \
                 coreutils \
+		ca-certificates \
                 dpkg-dev dpkg \
                 gcc \
                 g++ \
@@ -37,9 +38,10 @@ RUN set -x \
                 gdbm-dev \
                 pkgconf \
                 tar \
+	&& update-ca-certificates \
         && wget "https://github.com/neomutt/neomutt/archive/neomutt-${NEOMUTT_RELEASE}.tar.gz" -P /tmp/ \
-        && wget "https://github.com/neomutt/neomutt/archive/neomutt-${NEOMUTT_RELEASE}.zip" -P /tmp/ \
-        && wget "https://github.com/neomutt/neomutt/releases/download/neomutt-${NEOMUTT_RELEASE}/neomutt-${NEOMUTT_RELEASE}-CHECKSUM" -P /tmp/ \
+        && wget  "https://github.com/neomutt/neomutt/archive/neomutt-${NEOMUTT_RELEASE}.zip" -P /tmp/ \
+        && wget  "https://github.com/neomutt/neomutt/releases/download/neomutt-${NEOMUTT_RELEASE}/neomutt-${NEOMUTT_RELEASE}-CHECKSUM" -P /tmp/ \
         && export GNUPGHOME="$(mktemp -d)" \
         && gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys 86C2397270DD7A561263CA4E5FAF0A6EE7371805 \
         && gpg --batch --verify /tmp/neomutt-${NEOMUTT_RELEASE}-CHECKSUM \
