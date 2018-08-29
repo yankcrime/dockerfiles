@@ -16,5 +16,5 @@ docker run -it --rm --name itunes \
 ```
 
 ## Credits
-Most of the steps are taken from here: https://medium.com/@miguel.nunes.72/how-to-install-itunes-on-linux-using-wine-6d548
+Most of the steps are taken [from here](https://medium.com/@miguel.nunes.72/how-to-install-itunes-on-linux-using-wine-6d5485fb3e85).
  
