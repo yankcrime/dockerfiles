@@ -7,7 +7,7 @@ RUN dnf -y update \
 ENV HOME /home/user
 ENV WINEARCH win32
 
-RUN adduser -u 1001 user \
+RUN adduser -u 1000 user \
     && mkdir -p $HOME/.wine \
     && chown -R user:user $HOME
 
