@@ -9,7 +9,7 @@ docker build -t mmd .
 cat README.md | docker run --rm --name multimarkdown -i mmd
 ```
 
-To get XHTML output from your Markdown file.  For other outputs, just pass the same options as you'd expect to the `multimarkdown` command itself, e.g:
+By default you'll get XHTML output from your Markdown file.  For other outputs, just pass the same options as you'd expect to the `multimarkdown` command itself, e.g:
 
 ```
 cat README.md | docker run --rm --name multimarkdown -i mmd -t odf
