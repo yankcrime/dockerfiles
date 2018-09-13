@@ -1,4 +1,7 @@
+# Dockerfile for MultiMarkdown
+#
 FROM alpine:edge
+MAINTAINER "nick@dischord.org"
 
 ENV LANG C.UTF-8
 ENV MULTIMARKDOWN_RELEASE 6.4.0
