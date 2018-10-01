@@ -1,5 +1,5 @@
 # Via Jess Frazelle (@jessfraz)
-FROM alpine:3.6
+FROM alpine:3.8
 
 RUN apk --no-cache add \
         ca-certificates
@@ -18,6 +18,7 @@ RUN set -x \
                 autoconf \
                 automake \
                 coreutils \
+                ca-certificates \
                 dpkg-dev dpkg \
                 gcc \
                 glib-dev \
@@ -32,6 +33,7 @@ RUN set -x \
                 perl-dev \
                 pkgconf \
                 tar \
+        && update-ca-certificates \
         && wget "https://github.com/irssi/irssi/releases/download/${IRSSI_VERSION}/irssi-${IRSSI_VERSION}.tar.xz" -O /tmp/irssi.tar.xz \
         && wget "https://github.com/irssi/irssi/releases/download/${IRSSI_VERSION}/irssi-${IRSSI_VERSION}.tar.xz.asc" -O /tmp/irssi.tar.xz.asc \
         && export GNUPGHOME="$(mktemp -d)" \
