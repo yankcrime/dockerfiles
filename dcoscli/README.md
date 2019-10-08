@@ -2,7 +2,9 @@
 
 Build with:
 
-`DOCKER_BUILDKIT=1 docker build -t dcoscli .`
+```
+DOCKER_BUILDKIT=1 docker build -t dcoscli .
+```
 
 Then create a shellscript in your `$PATH` called `dcos` with the following contents:
 
@@ -15,6 +17,6 @@ docker run -it --rm --name dcos -e TERM \
 And then:
 
 ```
-$ dcos --version`
+$ dcos --version
 dcoscli.version=1.0.1
 ```
