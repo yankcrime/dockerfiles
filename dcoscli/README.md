@@ -18,5 +18,5 @@ And then:
 
 ```
 $ dcos --version
-dcoscli.version=1.0.1
+dcoscli.version=0.8.0
 ```
