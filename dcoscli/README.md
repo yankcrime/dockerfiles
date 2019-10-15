@@ -14,6 +14,8 @@ docker run -it --rm --name dcos -e TERM \
         dcoscli:latest "$@"
 ```
 
+_NB_: You'll need to move or delete your existing `~/.dcos` and then re-add clusters and subcommands.
+
 And then:
 
 ```
