@@ -1,7 +1,7 @@
 # Dockerfile for NeoMutt plus 'essentials'
 # Largely inspired by Jess Frazelle (@jessfraz)
 #
-FROM alpine:3.9
+FROM alpine:3.10
 
 RUN apk --no-cache add \
         ca-certificates
