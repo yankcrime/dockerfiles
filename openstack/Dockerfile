@@ -1,5 +1,5 @@
 # OpenStack CLI container image
-FROM alpine:3.11
+FROM alpine:3.12
 
 LABEL maintainer="nick@dischord.org"
 
