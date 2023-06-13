@@ -1,7 +1,7 @@
 # Dockerfile for NeoMutt plus 'essentials'
 # Largely inspired by Jess Frazelle (@jessfraz)
 #
-FROM alpine:3.10
+FROM alpine:3.18
 
 RUN apk --no-cache add \
         ca-certificates
@@ -13,7 +13,7 @@ RUN adduser -u 1000 -D user \
 
 ENV LANG C.UTF-8
 
-ENV NEOMUTT_RELEASE 20200320
+ENV NEOMUTT_RELEASE 20230517
 
 RUN set -x \
         && apk add --no-cache --virtual .build-deps \
@@ -29,6 +29,7 @@ RUN set -x \
                 libc-dev \
                 libxslt-dev \
                 libidn-dev \
+                libidn2-dev \
                 libtool \
                 links \
                 make \
@@ -43,7 +44,9 @@ RUN set -x \
         && wget  "https://github.com/neomutt/neomutt/archive/${NEOMUTT_RELEASE}.zip" -P /tmp/ \
         && wget  "https://github.com/neomutt/neomutt/releases/download/${NEOMUTT_RELEASE}/${NEOMUTT_RELEASE}-CHECKSUM" -P /tmp/ \
         && export GNUPGHOME="$(mktemp -d)" \
-        && gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys 86C2397270DD7A561263CA4E5FAF0A6EE7371805 \
+	&& for key in 86C2397270DD7A561263CA4E5FAF0A6EE7371805 ; do \
+	  gpg --keyserver keys.openpgp.org --recv-keys "$key" ; \
+	done \
         && gpg --batch --verify /tmp/${NEOMUTT_RELEASE}-CHECKSUM \
         && cd /tmp/ && sha256sum -c /tmp/${NEOMUTT_RELEASE}-CHECKSUM \
         && rm -rf "$GNUPGHOME" /tmp/${NEOMUTT_RELEASE}-CHECKSUM \
